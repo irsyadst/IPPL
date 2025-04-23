@@ -43,18 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_menu'])) {
     } else {
         $_SESSION['cart'][$id_menu] = 1;
     }
-
-    header("Location: ../includes/menu.php");
+    header("Location: menu.php");
     exit;
 }
 
-// Hapus item dari keranjang
-if (isset($_GET['hapus'])) {
-    $hapusId = $_GET['hapus'];
-    unset($_SESSION['cart'][$hapusId]);
-    header("Location: keranjang.php");
-    exit;
-}
 
 // Ambil data menu dari database berdasarkan ID yang ada di keranjang
 $cartItems = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];

@@ -1,6 +1,16 @@
 <?php
 session_start();
+include __DIR__ . "/server/database.php";
+
+$menus = [];
+$sql = "SELECT * FROM menu ORDER BY id_menu ASC LIMIT 6";
+$result = mysqli_query($db, $sql);
+
+while ($row = mysqli_fetch_assoc($result)) {
+  $menus[] = $row;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,128 +101,25 @@ session_start();
 
     <!-- Menu Container -->
     <div class="menu-container">
-      <!-- Indomie Goreng -->
-      <div class="menu-item">
-        <img src="/assets/img/mie-goreng.png" alt="indomiey">
-        <div class="menu-item-content">
-          <div class="h3-price">
-            <h3>Indomiey Goreng</h3>
-            <span class="price">10k</span>
-          </div>
-          <div class="rating-order">
-            <div class="rating">
-              <span>5.0</span>
-              <span class="stars">★★★★★</span>
-            </div>
-            <a href="/includes/order-indomie.php">
-              <button class="order-btn">Order Now</button>
-            </a>
-          </div>
+  <?php foreach ($menus as $menu): ?>
+    <div class="menu-item">
+      <img src="/assets/img/<?= htmlspecialchars($menu['gambar']) ?>" alt="<?= htmlspecialchars($menu['nama_menu']) ?>">
+      <div class="menu-item-content">
+        <div class="h3-price">
+          <h3><?= htmlspecialchars($menu['nama_menu']) ?></h3>
+          <span class="price">Rp.<?= htmlspecialchars(number_format($menu['harga'])) ?></span>
         </div>
-      </div>
-
-      <!-- Sate Telur Puyuh -->
-      <div class="menu-item">
-        <img src="/assets/img/icon-telur-puyuh.png" alt="telur puyuh">
-        <div class="menu-item-content">
-          <div class="h3-price">
-            <h3>Sate Tilir Piyih</h3>
-            <span class="price">5k</span>
-          </div>
-          <div class="rating-order">
-            <div class="rating">
-              <span>4.0</span>
-              <span class="stars">★★★★☆</span>
-            </div>
-            <a href="/includes/menu.php">
-              <button class="order-btn">Order Now</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sate Kulit Ayam -->
-      <div class="menu-item">
-        <img src="/assets/img/icon-sate-kulit.png" alt="sate kulit">
-        <div class="menu-item-content">
-          <div class="h3-price">
-            <h3>Sate Kilit Iyim</h3>
-            <span class="price">4k</span>
-          </div>
-          <div class="rating-order">
-            <div class="rating">
-              <span>5.0</span>
-              <span class="stars">★★★★★</span>
-            </div>
-            <a href="/includes/menu.php">
-              <button class="order-btn">Order Now</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Nasi Meong -->
-      <div class="menu-item">
-        <img src="/assets/img/nasi-meong.png" alt="nasi meong">
-        <div class="menu-item-content">
-          <div class="h3-price">
-            <h3>Nasi Meong</h3>
-            <span class="price">3k</span>
-          </div>
-          <div class="rating-order">
-            <div class="rating">
-              <span>5.0</span>
-              <span class="stars">★★★★★</span>
-            </div>
-            <a href="/includes/menu.php">
-              <button class="order-btn">Order Now</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Susu Jahe -->
-      <div class="menu-item">
-        <img src="/assets/img/susu-jahe.png" alt="susu jahe">
-        <div class="menu-item-content">
-          <div class="h3-price">
-            <h3>Milk Jahe</h3>
-            <span class="price">5k</span>
-          </div>
-          <div class="rating-order">
-            <div class="rating">
-              <span>5.0</span>
-              <span class="stars">★★★★★</span>
-            </div>
-            <a href="/includes/menu.php">
-              <button class="order-btn">Order Now</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mendoan bakar -->
-      <div class="menu-item">
-        <img src="/assets/img/mendoan-bakar.png" alt="mendoan bakar">
-        <div class="menu-item-content">
-          <div class="h3-price">
-            <h3>Mendoan Bakar</h3>
-            <span class="price">1k</span>
-          </div>
-          <div class="rating-order">
-            <div class="rating">
-              <span>4.5</span>
-              <span class="stars">★★★★☆</span>
-            </div>
-            <a href="/includes/ordermendoan.php">
-              <button class="order-btn">Order Now</button>
-            </a>
-          </div>
+        <div class="rating-order">
+          <form action="/includes/keranjang.php" method="POST">
+            <input type="hidden" name="id_menu" value="<?= $menu['id_menu'] ?>">
+            <button class="order-btn" type="submit">Order Now</button>
+          </form>
         </div>
       </div>
     </div>
-    <a class="view-menu-btn" href="/includes/menu.php">View Menu</a>
-  </section>
+  <?php endforeach; ?>
+</div>
+
 
   <!-- Testimonial -->
   <section class="testimonial-section">

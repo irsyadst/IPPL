@@ -40,9 +40,6 @@ $result = mysqli_query($db, $sql);
 
 <body>
   <?php include __DIR__ . "/../layout/navbar.php"; ?>
-  <div class="cart-link">
-    <a href="keranjang.php">🛒 Lihat Keranjang (<?= isset($_SESSION["cart"]) ? array_sum($_SESSION["cart"]) : 0 ?>)</a>
-  </div>
 
   <h1>Menu Makanan</h1>
 
@@ -52,13 +49,11 @@ $result = mysqli_query($db, $sql);
         <div class="menu-item">
           <img src="/./assets/img/<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['nama_menu']) ?>">
           <h3><?= htmlspecialchars($row['nama_menu']) ?></h3>
-          <div class="price"><?= htmlspecialchars($row['harga']) ?></div>
+          <div class="price">Rp.<?= htmlspecialchars($row['harga']) ?></div>
           <form action="../includes/keranjang.php" method="post">
-    <input type="hidden" name="id_menu" value="<?= $row['id_menu'] ?>">
-    <button type="submit" class="order-btn">Order Now</button>
-</form>
-
-
+            <input type="hidden" name="id_menu" value="<?= $row['id_menu'] ?>">
+            <button type="submit" class="order-btn">Order Now</button>
+          </form>
         </div>
       <?php endwhile; ?>
     <?php else: ?>

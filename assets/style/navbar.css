@@ -61,3 +61,14 @@
     color: black;
   }
   
+  .cart-link {
+    font-weight: bold;
+    color: #ff6600;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  
+  .cart-link:hover {
+    text-decoration: underline;
+  }
+  
