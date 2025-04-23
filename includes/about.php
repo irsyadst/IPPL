@@ -111,42 +111,6 @@ session_start();
     </div>
   </section>
 
-  <!-- Reservasi -->
-  <div class="reservasi-section">
-    <img src="/assets/img/background-reservasi.png" alt="background-reservasi">
-    <div class="reservation-form">
-      <hr class="line4">
-      <h2>RESERVATION</h2>
-      <hr class="line4">
-      <h1>BOOK YOUR TABLE NOW</h1>
-      <form id="reservationForm">
-        <input type="text" id="name" placeholder="Name" readonly>
-        <input type="email" id="email" placeholder="Email" readonly>
-        <div>
-          <input type="number" id="person" placeholder="Person" readonly>
-          <input type="time" id="timing" placeholder="Timing" readonly>
-          <input type="date" id="date" placeholder="Date" readonly>
-        </div>
-        <!-- Tombol submit -->
-        <button type="button" id="submitButton">Book a table</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    // Fungsi untuk mengarahkan pengguna ke halaman reservasi saat input atau tombol diklik
-    document.querySelectorAll('input').forEach(input => {
-      input.addEventListener('click', function() {
-        window.location.href = "/includes/reservasi.php"; // Arahkan ke halaman reservasi
-      });
-    });
-
-    // Event listener untuk tombol submit
-    document.getElementById("submitButton").addEventListener("click", function() {
-      window.location.href = "/includes/reservasi.php"; // Arahkan ke halaman reservasi
-    });
-  </script>
-
   <?php include __DIR__ . "/../layout/footer.html"; ?>
 </body>
 
