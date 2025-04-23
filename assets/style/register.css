@@ -1,0 +1,131 @@
+/* Mengatur gaya umum untuk semua elemen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar dan tinggi */
+}
+
+/* Mengatur gaya umum untuk body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Kontainer utama */
+.register-page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+ 
+/* Bagian kiri - form login */
+.left-section {
+    background-color: #FBE28A; /* Warna oranye */
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-register {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container-register h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    width: 70%;
+}
+
+.container-register label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.container-register input[type="text"],
+.container-register input[type="password"] {
+    width: 200%;
+    max-width: 540px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    font-size: 14px;
+    outline: none;
+    background-color: #FBE28A;
+    text-indent: 20px;
+}
+
+/* Pesan error */
+.error-message {
+    color: red;
+    font-size: 13px;
+    min-height: 15px; 
+    width: 180%;
+    max-width: 540px;
+}
+
+
+/* Button */
+.login-btn {
+    width: 200%;
+    max-width: 540px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #F58706;
+    color: #000000;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: orange;
+}
+
+.container-register p {
+    font-size: 15px;
+    color: #000000;
+    text-align: center; /* Tambahkan ini */
+    width: 80%; 
+    margin-top: 10px;
+}
+
+.container-register a {
+    color: #408fe4;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.container-register a:hover {
+    text-decoration: underline;
+}
+
+/* Gambar */
+.ramen-image {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    width: 400px;
+    height: auto;
+}
+
+.right-section {
+    width: 30%;
+    background-color: #181924;
+} 
