@@ -4,16 +4,16 @@ include __DIR__ . "/../server/database.php";
 session_start();
 
 $error_code = 0;
-$fulname = $username = $email = ""; // Menyimpan nilai input untuk mencegah reset
+$fullname = $username = $email = ""; // Menyimpan nilai input untuk mencegah reset
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $fulname = trim($_POST['fulname'] ?? '');
+    $fullname = trim($_POST['fullname'] ?? '');
     $username = trim($_POST['username'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
     $confirm_password = trim($_POST['confirmpassword'] ?? '');
 
-    if (!empty($fulname) && !empty($username) && !empty($email) && !empty($password) && !empty($confirm_password)) {
+    if (!empty($fullname) && !empty($username) && !empty($email) && !empty($password) && !empty($confirm_password)) {
         if ($password === $confirm_password) {
             // Cek username
             $sql_check_username = "SELECT * FROM user WHERE username = ?";
@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
                     $role = 'user';
-                    $sql_insert = "INSERT INTO user (fulname, username, email, password, role) VALUES (?, ?, ?, ?, ?)";
+                    $sql_insert = "INSERT INTO user (fullname, username, email, password, role) VALUES (?, ?, ?, ?, ?)";
                     $stmt_insert = $db->prepare($sql_insert);
-                    $stmt_insert->bind_param("sssss", $fulname, $username, $email, $hashed_password, $role);
+                    $stmt_insert->bind_param("sssss", $fullname, $username, $email, $hashed_password, $role);
 
 
                     if ($stmt_insert->execute() && $stmt_insert->affected_rows > 0) {
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1>Please Fill out form to Register!</h1>
                 <form action="/server/register.php" method="POST">
                     <label for="Fullname">Fullname:</label>
-                    <input type="text" name="fulname" id="fulname" value="<?php echo htmlspecialchars($fulname); ?>" required>
+                    <input type="text" name="fullname" id="fullname" value="<?php echo htmlspecialchars($fullname); ?>" required>
                     <span class="error-message"></span>
 
                     <label for="username">Username:</label>

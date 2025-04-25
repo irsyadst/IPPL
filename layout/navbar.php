@@ -30,7 +30,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 
             <li class="nav-item cart-nav">
                 <a href="/includes/keranjang.php" class="cart-link">
-                    🛒 Keranjang (<?= $cart_count ?>)
+                    🛒(<?= $cart_count ?>)
                 </a>
             </li>
         </ul>

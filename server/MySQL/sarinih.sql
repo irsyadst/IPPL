@@ -2,6 +2,28 @@
 CREATE DATABASE sarinih;
 
 use sarinih;
+
+ALTER TABLE `order` RENAME TO `orders`;
+
+ALTER TABLE `orders`
+MODIFY `id_order` INT(11) NOT NULL AUTO_INCREMENT,
+MODIFY `tanggal` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+MODIFY `total` INT(11) DEFAULT NULL,
+MODIFY `id_user` INT(11) NOT NULL;
+
+ALTER TABLE `orders`
+ADD `status` ENUM('pending', 'diproses', 'selesai', 'dibatalkan') NOT NULL DEFAULT 'pending';
+
+CREATE TABLE order_detail (
+  id_detail INT AUTO_INCREMENT PRIMARY KEY,
+  id_order INT NOT NULL,
+  id_menu INT NOT NULL,
+  jumlah INT NOT NULL,
+  FOREIGN KEY (id_order) REFERENCES orders(id_order) ON DELETE CASCADE,
+  FOREIGN KEY (id_menu) REFERENCES menu(id_menu) ON DELETE CASCADE
+);
+
+
 -- Buat tabel user_register terlebih dahulu
 CREATE TABLE `user` (
   `id_user` INT(11) NOT NULL AUTO_INCREMENT,

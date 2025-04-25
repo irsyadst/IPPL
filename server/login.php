@@ -1,20 +1,15 @@
 <?php
-// $_SESSION['user_id'] = $user['id_user']; // atau apa pun nama kolom ID di tabel user kamu
 // File: includes/login.php
 include __DIR__ . "/../server/database.php";
 
 session_start();
-
-
 
 $error_code = 0; // Variabel untuk kode error
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
-    $_SESSION['user_id'] = $user['id_user'];
-    $_SESSION['username'] = $user['username'];
-    $_SESSION['role'] = $user['role']; // Tambahkan ini
+
     if (!empty($username) && !empty($password)) {
         $sql = "SELECT * FROM user WHERE username = ?";
         $stmt = $db->prepare($sql);
@@ -25,10 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result && $result->num_rows > 0) {
             $user = $result->fetch_assoc();
             if (password_verify($password, $user['password'])) {
-                // Login berhasil
+                // Login berhasil, simpan session
                 $_SESSION['user_id'] = $user['id_user'];
-                // Arahkan ke index.html
-                header("Location: /index.php");
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role']; // Menyimpan role pengguna
+
+                // Arahkan berdasarkan role
+                if ($user['role'] === 'admin') {
+                    header("Location: /../includes/admin_dashboard.php"); // Admin ke dashboard admin
+                } else {
+                    header("Location: /../index.php"); // User biasa ke halaman utama
+                }
                 exit();
             } else {
                 $error_code = 2; // Password salah
@@ -38,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,9 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else if (errorCode === 2) {
                 const passwordError = document.createElement("p");
                 passwordError.style.color = "red";
-                asswordError.style.fontSize = "15px";
-                asswordError.style.marginTop = "-5px";
-                asswordError.style.marginBottom = "10px";
+                passwordError.style.fontSize = "15px";
+                passwordError.style.marginTop = "-5px";
+                passwordError.style.marginBottom = "10px";
                 passwordError.textContent = "Password salah.";
 
                 const passwordField = document.querySelector("#password");
@@ -82,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="left-section">
             <div class="container-login">
                 <h1>Welcome Back!</h1>
-                <form action="/server/Login.php" method="POST">
+                <form action="/server/login.php" method="POST">
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username" required>
 

@@ -47,9 +47,9 @@ $result = mysqli_query($db, $sql);
     <?php if ($result->num_rows > 0): ?>
       <?php while ($row = $result->fetch_assoc()): ?>
         <div class="menu-item">
-          <img src="/./assets/img/<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['nama_menu']) ?>">
+          <img src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['nama_menu']) ?>">
           <h3><?= htmlspecialchars($row['nama_menu']) ?></h3>
-          <div class="price">Rp.<?= htmlspecialchars($row['harga']) ?></div>
+          <div class="price">Rp. <?= number_format($row['harga'], 0, ',', '.') ?></div>
           <form action="../includes/keranjang.php" method="post">
             <input type="hidden" name="id_menu" value="<?= $row['id_menu'] ?>">
             <button type="submit" class="order-btn">Order Now</button>
