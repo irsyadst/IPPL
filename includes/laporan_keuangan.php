@@ -69,7 +69,7 @@ foreach ($orders as $order) {
         <h2>Admin Panel</h2>
         <a href="admin_dashboard.php">📋 Pesanan</a>
         <a href="tambah_admin.php">➕ Tambah Admin</a>
-        <a href="tambah_menu.php">🍜 Tambah Menu</a>
+        <a href="kelola_menu.php">🛠️ Kelola Menu</a>
         <a href="laporan_keuangan.php">📊 Laporan Keuangan</a>
         <a href="/server/logout.php">🚪 Logout</a>
     </div>

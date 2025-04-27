@@ -49,27 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Tambah Admin</title>
     <link rel="stylesheet" href="/../assets/style/admin.css">
     <style>
-        body { display: flex; font-family: Arial, sans-serif; }
-        .sidebar {
-            width: 220px; background-color: #2c3e50; color: white;
-            height: 100vh; padding: 20px; box-sizing: border-box;
-        }
-        .sidebar h2 { font-size: 24px; }
-        .sidebar a {
-            display: block; color: white; text-decoration: none;
-            margin: 15px 0; font-size: 16px;
-        }
-        .sidebar a:hover { background-color: #34495e; padding-left: 10px; }
-        .content {
-            margin-left: 240px; padding: 30px; width: 100%;
-        }
-        .form-group { margin-bottom: 15px; }
-        input[type="text"], input[type="email"], input[type="password"] {
-            padding: 10px; width: 300px;
-        }
-        button { padding: 10px 20px; }
-        .msg { margin-top: 15px; color: green; }
-        .error { color: red; }
+        
     </style>
 </head>
 <body>
@@ -77,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h2>Admin Panel</h2>
         <a href="admin_dashboard.php">📋 Pesanan</a>
         <a href="tambah_admin.php">➕ Tambah Admin</a>
-        <a href="tambah_menu.php">🍜 Tambah Menu</a>
+        <a href="kelola_menu.php">🛠️ Kelola Menu</a>
         <a href="laporan_keuangan.php">📊 Laporan Keuangan</a>
         <a href="/server/logout.php">🚪 Logout</a>
     </div>
