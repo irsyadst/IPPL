@@ -1,0 +1,74 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background-color: #1a1a1a;
+    padding: 40px;
+    transition: top 0.75s ease;
+  }
+  
+  .navbar ul {
+    list-style-type: none; /* Hilangkan bullet points */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar ul li {
+    margin: 0 70px;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s; /* Transisi untuk efek hover */
+  }
+  
+  .navbar ul li a:hover {
+    color: orange;
+  }
+  
+  .navbar ul li a.active {
+    color: #F58706;
+  }
+  
+  /* Styling untuk tombol login */
+  .navbar ul .login a {
+    background-color: #F58706;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: black;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar ul .login a:hover {
+    background-color: rgb(173, 113, 2);
+    color: black;
+  }
+  
+  .cart-link {
+    font-weight: bold;
+    color: #ff6600;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  
+  .cart-link:hover {
+    text-decoration: underline;
+  }
+  

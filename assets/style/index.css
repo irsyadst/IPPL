@@ -1,0 +1,555 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+.body {
+  font-family: 'Arial', sans-serif;
+}
+  /* Top Section styling */
+  .top {
+    background-color: #F8EADF;
+    text-align: justify;
+    padding: 100px 50px;
+  }
+  
+  .top h1 {
+    text-align: center;
+    margin: 10px 0;
+    margin-left: 5%;
+    max-width: 500px;
+    font-family: 'Montserrat';
+    font-size: 48px;
+  }
+  
+  .black-text {
+    color: black;
+  }
+  
+  .orange-text {
+    color: #F58706;
+  }
+  
+  .top .p1, .top .p2 {
+    font-family: 'Montserrat';
+    margin: 20px 0;
+    margin-left: 5%;
+    font-size: 20px;
+    max-width: 500px;
+    color: black;
+  }
+  
+  .top .p2 {
+    font-weight: bold;
+    font-size: 25px;
+  }
+  
+  /* Button about */
+  .button-about {
+    position: absolute;
+    top: 630px;
+    margin-left: 12%;
+    display: inline-block;
+    background-color: #d48700;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .button-about:hover {
+    background-color: rgb(173, 113, 2);
+  }
+  
+/* Gambar angkringan */
+img[alt="angkringan"] {
+  position: absolute;
+  top: 25%;
+  right: 120px;
+  width: 400px;
+  height: auto;
+  background-color: transparent;
+}
+
+/* Mid section */
+.mid {
+  margin-top: 8%;
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: space-around; /* Atur jarak di antara elemen */
+  align-items: center;
+  margin: 50px 0;
+  margin-bottom: 8%;
+}
+
+.circle-item {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.circle1, .circle2, .circle3 {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #d48700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.circle1 img, .circle2 img, .circle3 img {
+  width: 60%;
+  height: auto;
+}
+
+.circle-item p {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+/* Story container */
+.story-container {
+  display: flex;
+  align-items: center; 
+  margin: 20px;
+}
+
+img[alt="angkringan2"] {
+  width: 410px;
+  height: auto;
+  border-radius: 8px;
+  margin-left: 100px;
+}
+
+img[alt="vektor"] {
+  width: 30px;
+  height: auto;
+  margin-right: 110px;
+  margin-left: 50px;
+}
+
+/* Judul The Story */
+.text1 {
+  max-width: 500px;
+  font-family: 'Montserrat';
+}
+
+.text1 .left {
+  text-align: justify;
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+}
+
+.text1 .center {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+  margin-left: 100px;
+}
+
+/* Deskripsi untuk The Story */
+.text1 .left2 {
+  text-align: justify;
+  font-size: 20px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Deskripsi untuk 2022 */
+.text1 .center2 {
+  text-align: center;
+  font-size: 20px;
+  color: #555;
+  line-height: 1.5;
+  margin-left: 100px;
+}
+
+/* Menu Header Styling */
+.menu-section {
+  text-align: center;
+}
+
+.menu-header {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.line1 {
+  display: block; /* Membuat garis berada di atas dan di bawah teks */
+  width: 80px;
+  border: 1px solid rgba(173, 94, 0, 1);
+  margin: 10px auto; /* Untuk memberikan jarak antar elemen */
+}
+
+.menu-title {
+  font-size: 20px;
+  font-family: 'Montserrat';
+  display: block; /* Memastikan elemen ini blok agar garis bisa berada di atas dan bawah */
+  margin: 10px 0;
+}
+
+.menu-section h2 {
+  font-family: 'Montserrat';
+  font-size: 50px;
+  margin: 10px;
+}
+
+.menu-section p {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+/* Menu Container */
+.menu-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+  gap: 50px; /* Jarak antar item */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menu-item {
+  display: inline-block;
+  background-color: white;
+  width: 250px;
+  border-radius: 10px;
+  flex-shrink: 0; /* Biarkan tidak mengecil */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Agar elemen dalam tidak keluar dari border-radius */
+}
+
+.menu-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Bayangan lebih kuat saat hover */
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+}
+
+.menu-item-content {
+  padding: 10px;
+}
+
+.h3-price {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.menu-item .price {
+  color: #d48700;
+}
+
+/* Rating Order */
+.rating-order {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.rating .stars {
+  color: #d48700;
+  font-size: 18px;
+}
+
+/* Order Button */
+.order-btn {
+  background-color: #d48700;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.order-btn:hover {
+  background-color: rgb(173, 113, 2);
+}
+
+/* View Menu Button */
+.view-menu-btn{
+  display: inline-block;
+  background-color: #d48700;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.view-menu-btn:hover {
+  background-color: rgb(173, 113, 2);
+}
+
+/* Bagian Service */
+.services {
+  font-family: 'Montserrat';
+  background-color: #F8EADF;
+  margin-top: 50px;
+  display: flex;
+}
+
+.container {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.services-header {
+  text-align: left;
+  font-size: 48px;
+  color: #000;
+  margin-top: 50px;
+}
+
+.services-header span {
+  color: #F58706;
+}
+
+.line2 {
+  display: block;
+  width: 33%;
+  border: 1px solid rgba(173, 94, 0, 1);
+  margin: 10px 0; 
+}
+
+.services-description {
+  font-size: 20px;
+  text-align: justify;
+  max-width: 35%;
+  margin-top: 30px;
+  float: left;
+}
+
+.services-list {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 100px;
+}
+
+.service-item {
+  background-color: #292E36; 
+  padding: 20px;
+  width: 150px; 
+  height: 175px; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.service-item img {
+  width: 60%;  
+  height: auto; 
+  margin-bottom: 10px; 
+}
+
+.service-item p {
+  font-size: 17px;
+  color: white;
+}
+
+/* Bagian Testimoni */
+.testimonial-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: white;
+  font-family: 'Montserrat';
+}
+
+.testimonial-section h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: lighter;
+}
+
+.testimonial-section h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.testimonial-section p {
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.line3 {
+  width: 150px;
+  height: 2px;
+  background-color: #f49c3c;
+  border: none;
+  margin: 0 auto 10px;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  background: #292E36;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: left;
+  width: 350px;
+  margin-bottom: 100px;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  float: left; 
+  margin-right: 15px; 
+}
+
+.testimonial h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.testimonial .location {
+  font-size: 15px;
+  color: #F8E5A5;
+  margin-bottom: 35px; 
+}
+
+.testimonial hr {
+  border: none;
+  border-top: 2px solid #FFFFFF; 
+  margin: 15px 0; 
+}
+
+.testimonial .feedback {
+  color: white;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 18px;
+  margin-top: 10px; 
+}
+
+/* Bagian reservasi */
+/* Bagian reservasi */
+.reservasi-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Montserrat';
+  margin-bottom: 100px;
+}
+
+.reservasi-section img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  margin-bottom: 100px;
+}
+
+.reservation-form {
+  max-width: 500px;
+  margin: 200px auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reservation-form h2 {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.reservation-form h1 {
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.line4 {
+  border: none;
+  border-top: 1px solid #d48700;
+  width: 32%;
+  display: block;
+  margin: 0 auto;
+}
+
+input {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button {
+  font-family: 'Montserrat';
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #F58706;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: orange;
+}
+
+.order-now-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f77f00;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.order-now-btn:hover {
+  background-color: #d06500;
+}
