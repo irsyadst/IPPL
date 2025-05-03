@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . "/../server/database.php";
-// Ambil data dari tabel menu
-$sql = "SELECT * FROM menu";
+// Ambil data menu yang aktif
+$sql = "SELECT * FROM menu WHERE status = 'aktif'";  // Menampilkan hanya menu dengan status aktif
 $result = mysqli_query($db, $sql);
 session_start();
 include __DIR__ . "/../server/database.php";
@@ -23,10 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id_menu"])) {
   exit;
 }
 
-// Ambil data menu
-$sql = "SELECT * FROM menu";
+// Ambil data menu yang aktif
+$sql = "SELECT * FROM menu WHERE status = 'aktif'";  // Hanya menu aktif yang diambil
 $result = mysqli_query($db, $sql);
-
 ?>
 
 <!DOCTYPE html>

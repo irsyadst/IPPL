@@ -1,18 +1,33 @@
+/* Reset dasar dan font */
 body {
   font-family: Arial, sans-serif;
-
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
 }
 
+/* Container untuk semua menu */
 .menu-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start;
   padding: 20px;
+  flex-grow: 1;
 }
 
+/* Kartu menu */
 .menu-item {
+  flex: 0 0 auto;       /* Mencegah item melar */
   width: 220px;
+  height: 340px;        /* Tinggi tetap */
+  overflow: hidden;     /* Potong jika ada kelebihan */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Agar tombol order tetap di bawah */
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
@@ -21,6 +36,7 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
+/* Gambar di dalam menu */
 .menu-item img {
   width: 100%;
   height: 140px;
@@ -28,12 +44,14 @@ body {
   border-radius: 5px;
 }
 
+/* Harga menu */
 .price {
   font-weight: bold;
   margin-top: 10px;
   color: #28a745;
 }
 
+/* Tombol order */
 .order-btn {
   margin-top: 10px;
   padding: 8px 12px;
@@ -42,12 +60,14 @@ body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .order-btn:hover {
   background-color: #0056b3;
 }
 
+/* Link ke keranjang */
 .cart-link {
   text-align: right;
   margin: 10px 30px 0 0;
@@ -58,6 +78,8 @@ body {
   text-decoration: none;
   color: #007bff;
 }
+
+/* Keranjang */
 .cart-container {
   padding: 20px;
 }
@@ -68,35 +90,44 @@ body {
   margin-top: 20px;
 }
 
-.cart-table th, .cart-table td {
+.cart-table th,
+.cart-table td {
   padding: 10px;
-  border: 0px solid #ddd;
+  border: 1px solid #ddd;
   text-align: center;
 }
 
+/* Total harga */
 .total {
   margin-top: 20px;
   font-size: 18px;
   text-align: right;
 }
 
+/* Tombol checkout dan kembali */
 .checkout-actions {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.checkout-btn, .back-btn {
+.checkout-btn,
+.back-btn {
+  
   padding: 10px 20px;
   background-color: #28a745;
   color: white;
   text-decoration: none;
   border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
-.checkout-btn:hover, .back-btn:hover {
+.checkout-btn:hover,
+.back-btn:hover {
   background-color: #218838;
 }
+
+/* Tampilan sukses checkout */
 .checkout-success {
   padding: 30px;
   text-align: center;
@@ -114,6 +145,7 @@ body {
   color: white;
   border-radius: 6px;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 .checkout-success .back-btn:hover {

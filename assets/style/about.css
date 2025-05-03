@@ -86,7 +86,7 @@ img[alt="vektor"] {
 
 /* Judul The Story */
 .text1 {
-  max-width: 500px;
+  max-width: 700px;
   font-family: 'Montserrat';
 }
 
@@ -95,15 +95,17 @@ img[alt="vektor"] {
   font-size: 50px;
   font-weight: bold;
   color: black;
+  margin-left: -50px;
 }
 
 .text1 .center {
-  text-align: center;
+  text-align: justify;
   font-size: 50px;
   font-weight: bold;
   color: black;
-  margin-left: 100px;
+  margin-left: -50px;
 }
+
 
 /* Deskripsi untuk The Story */
 .text1 .left2 {
@@ -111,16 +113,17 @@ img[alt="vektor"] {
   font-size: 20px;
   color: #555;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
+  margin-left: -50px;
 }
 
-/* Deskripsi untuk 2022 */
+/* Deskripsi untuk 2025 */
 .text1 .center2 {
-  text-align: center;
+  text-align:justify;
   font-size: 20px;
   color: #555;
   line-height: 1.5;
-  margin-left: 100px;
+  margin-left: -50px;
 }
 
 .icon-section {

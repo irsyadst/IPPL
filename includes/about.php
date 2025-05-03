@@ -21,13 +21,11 @@ session_start();
       <hr class="line1">
       <span class="black-text">ABOUT US</span>
       <hr class="line1">
-      <span class="Angkringan-Sakinih">Angkringan Sakinih</span><br>
+      <span class="Angkringan-Sakinih">Angkringan Sedulur</span><br>
     </div>
 
     <p class="p1">
-      Angkringan Sakinih adalah warisan leluhur yang menyajikan cita rasa asli Jawa. Kami berkomitmen menghadirkan
-      pengalaman kuliner yang autentik dengan menu-menu tradisional seperti nasi kucing, sate-satean, dan berbagai
-      gorengan. Nikmati suasana santai dan akrab sambil ditemani secangkir teh hangat di angkringan kami."
+    Nikmati hangatnya kebersamaan di Angkringan Sedulur, tempat di mana cita rasa tradisional bertemu suasana santai. Kami menghadirkan beragam pilihan kuliner khas angkringan, mulai dari nasi kucing, sate-satean, hingga aneka gorengan, semua dengan harga ramah di kantong. Sempurna untuk menemani waktu bersantai bersama teman dan keluarga, dalam suasana akrab layaknya saudara.
     </p>
   </div>
 
@@ -59,13 +57,11 @@ session_start();
     <div class="text1">
       <h2 class="left"><i>The Story</i></h2>
       <p class="left2">
-        Angkringan Sarinih Terinspirasi dari kebiasaan nongkrong sederhana, mereka menciptakan angkringan dengan konsep
-        modern yang tetap ramah kantong. Mengusung nama "Sarinih," yang berarti "mari kesini."
+      Terinspirasi dari semangat kebersamaan dan tradisi nongkrong sederhana, kami menghadirkan Angkringan Sedulur dengan konsep modern yang tetap ramah di kantong. Mengusung nama "Sedulur," yang berarti "saudara," kami ingin menciptakan tempat di mana setiap orang bisa berkumpul, berbagi cerita, dan menikmati sajian tradisional dengan rasa hangat kekeluargaan.
       </p>
-      <h2 class="center"><i>2022</i></h2>
+      <h2 class="center"><i>2025</i></h2>
       <p class="center2">
-        Angkringan Sarinih lahir pada tahun 2022 dari semangat kebersamaan sekelompok mahasiswa Universitas Telkom
-        Purwokerto yang ingin menghadirkan tempat nongkrong sederhana namun berkesan.
+      Angkringan Sedulur lahir pada tahun 2025 dari semangat kebersamaan sekelompok mahasiswa Universitas Telkom Purwokerto yang ingin menciptakan tempat nongkrong sederhana namun penuh makna. Dengan mengusung nilai persaudaraan, Angkringan Sedulur hadir sebagai ruang berkumpul yang hangat, menghadirkan cita rasa tradisional dengan sentuhan modern yang tetap ramah di kantong.
       </p>
     </div>
   </div>
@@ -82,17 +78,17 @@ session_start();
     <div class="team-container">
       <div class="team-card">
         <img src="/assets/img/chef1.png" alt="Chef Junaidi">
-        <h3>Chef Junaidi</h3>
+        <h3>Chef Juna</h3>
         <p>Assistant Chef</p>
       </div>
       <div class="team-card">
         <img src="/assets/img/chef2.png" alt="Chef Riniti">
-        <h3>Chef Riniti</h3>
+        <h3>Chef Renatha</h3>
         <p>Assistant Chef</p>
       </div>
       <div class="team-card">
         <img src="/assets/img/chef3.png" alt="Chef Arnoldi">
-        <h3>Chef Arnoldi</h3>
+        <h3>Chef Arnold</h3>
         <p>Master Chef</p>
       </div>
     </div>

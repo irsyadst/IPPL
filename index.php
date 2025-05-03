@@ -3,7 +3,7 @@ session_start();
 include __DIR__ . "/server/database.php";
 
 $menus = [];
-$sql = "SELECT * FROM menu ORDER BY id_menu ASC LIMIT 6";
+$sql = "SELECT * FROM menu WHERE status = 'aktif' ORDER BY id_menu ASC LIMIT 6";
 $result = mysqli_query($db, $sql);
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -22,25 +22,27 @@ while ($row = mysqli_fetch_assoc($result)) {
 </head>
 
 <body>
-  <!-- Memanggil navbar -->
   <?php include __DIR__ . "/layout/navbar.php"; ?>
 
   <!-- Top Section -->
   <div class="top">
-    <h1>
-      <span class="black-text">Selamat Datang di</span><br>
-      <span class="orange-text">Angkringan Sakinih!</span>
-    </h1>
-    <p class="p1">
-      Nikmati suasana santai dan kenikmatan kuliner khas angkringan. Temukan beragam pilihan makanan tradisional yang
-      lezat dengan harga terjangkau, mulai dari nasi kucing, sate-satean, hingga aneka gorengan. Sempurna untuk menemani
-      waktu bersantai bersama teman dan keluarga.
-    </p>
-    <p class="p2">
-      Angkringan - Hangatnya Kebersamaan, Nikmatnya Makanan Tradisional!
-    </p>
+    <div class="text-container">
+      <h1>
+        <span class="black-text">Selamat Datang di</span><br>
+        <span class="orange-text">Angkringan Sedulur!</span>
+      </h1>
+      <p class="p1">
+        Nikmati hangatnya kebersamaan di Angkringan Sedulur, tempat di mana cita rasa tradisional bertemu suasana santai. Kami menghadirkan beragam pilihan kuliner khas angkringan, mulai dari nasi kucing, sate-satean, hingga aneka gorengan, semua dengan harga ramah di kantong. 
+        Sempurna untuk menemani waktu bersantai bersama teman dan keluarga, dalam suasana akrab layaknya saudara.
+      </p>
+      <p class="p2">
+        Datang, duduk, dan rasakan sendiri kehangatan rasa dan persaudaraan di setiap sajian kami.
+      </p>
+    </div>
+    <div class="image-container">
+      <img src="/assets/img/index12.jpeg" alt="Welcome Image">
+    </div>
   </div>
-
 
   <!-- Mid Section -->
   <div class="mid">
@@ -73,13 +75,15 @@ while ($row = mysqli_fetch_assoc($result)) {
       <div class="text1">
         <h2 class="left"><i>The Story</i></h2>
         <p class="left2">
-          Angkringan Sarinih Terinspirasi dari kebiasaan nongkrong sederhana, mereka menciptakan angkringan dengan
-          konsep modern yang tetap ramah kantong. Mengusung nama "Sarinih," yang berarti "mari kesini."
+        Terinspirasi dari semangat kebersamaan dan tradisi nongkrong sederhana, kami menghadirkan Angkringan Sedulur dengan konsep modern yang tetap ramah di kantong.
+        Mengusung nama "Sedulur," yang berarti "saudara," kami ingin menciptakan tempat di mana setiap orang bisa berkumpul, berbagi cerita, dan menikmati sajian tradisional dengan rasa hangat kekeluargaan.
         </p>
-        <h2 class="center"><i>2022</i></h2>
+        <h2 class="center"><i>2025</i></h2>
         <p class="center2">
-          Angkringan Sarinih lahir pada tahun 2022 dari semangat kebersamaan sekelompok mahasiswa Universitas Telkom
-          Purwokerto yang ingin menghadirkan tempat nongkrong sederhana namun berkesan.
+          Angkringan Sedulur lahir pada tahun 2025 dari semangat kebersamaan sekelompok mahasiswa Universitas Telkom Purwokerto 
+          yang ingin menciptakan tempat nongkrong sederhana namun penuh makna.
+          Dengan mengusung nilai persaudaraan, Angkringan Sedulur hadir sebagai ruang berkumpul yang hangat, 
+          menghadirkan cita rasa tradisional dengan sentuhan modern yang tetap ramah di kantong.
         </p>
       </div>
     </div>
@@ -87,23 +91,21 @@ while ($row = mysqli_fetch_assoc($result)) {
 
   <!-- Menu Section -->
   <section class="menu-section">
-    <!-- Header Menu -->
     <div class="menu-header">
       <hr class="line1">
       <span class="menu-title">MENU</span>
       <hr class="line1">
     </div>
 
-    <h2>Menu Favorite</h2>
+    <h2>Menu kami</h2>
     <p>
-      Dibawah ini merupakan menu makanan dan minuman yang kami<br> rekomendasikan di Angkringan Sarinih.
-    </p>
+      Dibawah ini merupakan menu makanan dan minuman yang kami<br> rekomendasikan di Angkringan Sedulur.
+    </p>  
 
-    <!-- Menu Container -->
-    <div class="menu-container">
+    <div class="menu-container">  
       <?php foreach ($menus as $menu): ?>
         <div class="menu-item">
-          <img src="/assets/img/<?= htmlspecialchars($menu['gambar']) ?>" alt="<?= htmlspecialchars($menu['nama_menu']) ?>">
+          <img src="<?= htmlspecialchars($menu['gambar']) ?>" alt="<?= htmlspecialchars($menu['nama_menu']) ?>">
           <div class="menu-item-content">
             <div class="h3-price">
               <h3><?= htmlspecialchars($menu['nama_menu']) ?></h3>
@@ -115,11 +117,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
       <?php endforeach; ?>
     </div>
-    <a href="includes/menu.php" class="order-now-btn">Order Now</a>
+    <a href="includes/menu.php" class="order-now-btn">Pesan Sekarang</a>
 
-
-
-    <!-- Testimonial -->
     <section class="testimonial-section">
       <hr class="line3">
       <h1>TESTIMONIAL</h1>
@@ -128,22 +127,22 @@ while ($row = mysqli_fetch_assoc($result)) {
       </p>
       <div class="testimonials">
         <div class="testimonial">
-          <img src="/assets/img/profile1.png" alt="Bang Oyot" class="profile-pic">
-          <h3>Bang Oyot</h3>
+          <img src="/assets/img/profile1.jpeg" alt="Irsyad" class="profile-pic">
+          <h3>Muhammad Irsyad</h3>
           <p class="location">Bekasi</p>
           <hr>
-          <p class="feedback">“Wah enakkk sekaliii.... Aku sangat sukaa, ini akan menjadi angkringan langganankuuu.”</p>
+          <p class="feedback">“Tempat langganan ku nih..,enak tempatnya.”</p>
         </div>
         <div class="testimonial">
-          <img src="/assets/img/profile2.png" alt="Mba Esih" class="profile-pic">
-          <h3>Mba Esih</h3>
+          <img src="/assets/img/profile2.jpeg" alt="Yosea" class="profile-pic">
+          <h3>Yosea Mervandy</h3>
           <p class="location">Malang</p>
           <hr>
-          <p class="feedback">“Tempatnya nyaman dan sangat bersih juga.”</p>
+          <p class="feedback">“Tempatnya nyaman dan bersih, murah lagi hehe.”</p>
         </div>
         <div class="testimonial">
-          <img src="/assets/img/profile3.png" alt="Yayat Sutrisno" class="profile-pic">
-          <h3>Yayat Sutrisno</h3>
+          <img src="/assets/img/profile3.jpeg" alt="willy" class="profile-pic">
+          <h3>Willyan Hyuga</h3>
           <p class="location">Purwokerto</p>
           <hr>
           <p class="feedback">“Sate ayamnya enakk dan sosis bakarnya juga gurih euyyy. Pokoknyaa rekomennn bngtt dah.”</p>

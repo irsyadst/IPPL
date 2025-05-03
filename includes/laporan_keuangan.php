@@ -1,13 +1,22 @@
 <?php
-include __DIR__ . "/../server/database.php";
+include __DIR__ . '/../server/database.php';
 session_start();
 
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header("Location: /server/login.php");
-    exit;
+// Ambil filter dari form
+$filter = $_GET['filter'] ?? 'hari'; // default = hari ini
+
+$whereClause = "WHERE o.status = 'selesai'";
+
+// Tentukan rentang tanggal berdasarkan filter
+if ($filter === 'hari') {
+    $whereClause .= " AND DATE(o.tanggal) = CURDATE()";
+} elseif ($filter === 'minggu') {
+    $whereClause .= " AND YEARWEEK(o.tanggal, 1) = YEARWEEK(CURDATE(), 1)";
+} elseif ($filter === 'bulan') {
+    $whereClause .= " AND MONTH(o.tanggal) = MONTH(CURDATE()) AND YEAR(o.tanggal) = YEAR(CURDATE())";
 }
 
-// Ambil semua pesanan selesai
+// Query untuk ambil data pesanan selesai
 $sql = "
 SELECT 
     o.id_order,
@@ -16,18 +25,15 @@ SELECT
     o.tanggal
 FROM orders o
 JOIN user u ON o.id_user = u.id_user
-WHERE o.status = 'selesai'
+$whereClause
 ORDER BY o.tanggal DESC
 ";
 
 $result = mysqli_query($db, $sql);
 $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-// Hitung total pemasukan
-$totalPemasukan = 0;
-foreach ($orders as $order) {
-    $totalPemasukan += $order['total_harga'];
-}
+// Hitung total pendapatan
+$totalPendapatan = array_sum(array_column($orders, 'total_harga'));
 ?>
 
 <!DOCTYPE html>
@@ -36,33 +42,6 @@ foreach ($orders as $order) {
     <meta charset="UTF-8">
     <title>Laporan Keuangan</title>
     <link rel="stylesheet" href="/../assets/style/admin.css">
-    <style>
-        body { display: flex; font-family: Arial, sans-serif; }
-        .sidebar {
-            width: 220px; background-color: #2c3e50; color: white;
-            height: 100vh; padding: 20px; box-sizing: border-box;
-        }
-        .sidebar h2 { font-size: 24px; }
-        .sidebar a {
-            display: block; color: white; text-decoration: none;
-            margin: 15px 0; font-size: 16px;
-        }
-        .sidebar a:hover { background-color: #34495e; padding-left: 10px; }
-        .content {
-            margin-left: 240px; padding: 30px; width: 100%;
-        }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .total-box {
-            margin-top: 20px;
-            background-color: #ecf0f1;
-            padding: 20px;
-            font-size: 18px;
-            border-radius: 5px;
-            width: fit-content;
-        }
-    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -74,31 +53,42 @@ foreach ($orders as $order) {
         <a href="/server/logout.php">🚪 Logout</a>
     </div>
 
-    <div class="content">
+    <div class="admin-dashboard">
         <h1>📊 Laporan Keuangan</h1>
 
-        <div class="total-box">
-            <strong>Total Pemasukan:</strong> Rp<?= number_format($totalPemasukan) ?>
-        </div>
+        <form method="GET">
+            <label for="filter">Tampilkan berdasarkan:</label>
+            <select name="filter" onchange="this.form.submit()">
+                <option value="hari" <?= $filter === 'hari' ? 'selected' : '' ?>>Hari</option>
+                <option value="minggu" <?= $filter === 'minggu' ? 'selected' : '' ?>>Minggu</option>
+                <option value="bulan" <?= $filter === 'bulan' ? 'selected' : '' ?>>Bulan </option>
+            </select>
+        </form>
+
+        <h3>Total Pendapatan: Rp <?= number_format($totalPendapatan, 0, ',', '.') ?></h3>
 
         <table>
             <thead>
                 <tr>
+                    <th>Tanggal</th>
                     <th>ID Pesanan</th>
                     <th>Nama Pemesan</th>
-                    <th>Tanggal</th>
-                    <th>Total</th>
+                    <th>Total Harga</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($orders as $order): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($order['id_order']) ?></td>
-                        <td><?= htmlspecialchars($order['nama_pemesan']) ?></td>
-                        <td><?= htmlspecialchars($order['tanggal']) ?></td>
-                        <td>Rp<?= number_format($order['total_harga']) ?></td>
-                    </tr>
-                <?php endforeach; ?>
+                <?php if (empty($orders)): ?>
+                    <tr><td colspan="4">Tidak ada data.</td></tr>
+                <?php else: ?>
+                    <?php foreach ($orders as $order): ?>
+                        <tr>
+                            <td><?= date('Y-m-d', strtotime($order['tanggal'])) ?></td>
+                            <td><?= htmlspecialchars($order['id_order']) ?></td>
+                            <td><?= htmlspecialchars($order['nama_pemesan']) ?></td>
+                            <td>Rp <?= number_format($order['total_harga'], 0, ',', '.') ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
