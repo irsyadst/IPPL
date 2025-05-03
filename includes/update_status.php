@@ -1,12 +1,27 @@
 <?php
 include __DIR__ . "/../server/database.php";
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_order = $_POST['id_order'];
+    // Ambil data dari form
+    $id_menu = (int) $_POST['id_menu'];
     $status = $_POST['status'];
 
-    mysqli_query($db, "UPDATE orders SET status = '$status' WHERE id_order = $id_order");
-}
+    // Validasi status
+    if (!in_array($status, ['aktif', 'nonaktif'])) {
+        die("Status tidak valid.");
+    }
 
-header("Location: admin_dashboard.php");
-exit;
+    // Update status menu di database
+    $stmt = $db->prepare("UPDATE menu SET status = ? WHERE id_menu = ?");
+    $stmt->bind_param("si", $status, $id_menu);
+
+    if ($stmt->execute()) {
+        header("Location: kelola_menu.php"); // Kembali ke halaman kelola menu setelah update
+        exit;
+    } else {
+        echo "Gagal memperbarui status.";
+    }
+}
+?>
+
