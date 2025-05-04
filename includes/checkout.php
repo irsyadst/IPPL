@@ -27,26 +27,35 @@ while ($row = mysqli_fetch_assoc($result)) {
     $menuData[] = [
         'id_menu' => $id,
         'qty' => $qty,
-        'subtotal' => $subtotal
+        'subtotal' => $subtotal,
+        'nama_menu' => $row['nama_menu'],
+        'harga' => $row['harga']
     ];
     $total += $subtotal;
 }
 
-// ✅ Simpan ke tabel orders (dengan id_user)
-$id_user = $_SESSION['user_id'];
-mysqli_query($db, "INSERT INTO orders (id_user, total) VALUES ($id_user, $total)");
-$orderId = mysqli_insert_id($db);
+// Proses checkout jika tombol 'checkout' ditekan
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkout'])) {
+    // ✅ Simpan ke tabel orders (dengan id_user)
+    $id_user = $_SESSION['user_id'];
+    mysqli_query($db, "INSERT INTO orders (id_user, total) VALUES ($id_user, $total)");
+    $orderId = mysqli_insert_id($db);
 
-// Simpan ke tabel order_items
-foreach ($menuData as $item) {
-    $id_menu = $item['id_menu'];
-    $qty = $item['qty'];
-    $subtotal = $item['subtotal'];
-    mysqli_query($db, "INSERT INTO order_items (id_order, id_menu, qty, subtotal) VALUES ($orderId, $id_menu, $qty, $subtotal)");
+    // Simpan ke tabel order_items
+    foreach ($menuData as $item) {
+        $id_menu = $item['id_menu'];
+        $qty = $item['qty'];
+        $subtotal = $item['subtotal'];
+        mysqli_query($db, "INSERT INTO order_items (id_order, id_menu, qty, subtotal) VALUES ($orderId, $id_menu, $qty, $subtotal)");
+    }
+
+    // Kosongkan keranjang
+    unset($_SESSION['cart']);
+
+    // Redirect ke halaman sukses checkout
+    header("Location: checkout_sukses.php?order_id=$orderId");
+    exit;
 }
-
-// Kosongkan keranjang
-unset($_SESSION['cart']);
 
 ?>
 
@@ -54,17 +63,43 @@ unset($_SESSION['cart']);
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout Sukses</title>
-    <link rel="stylesheet" href="/../assets/style/menu.css">
+    <title>Nota Pembelian</title>
+    <link rel="stylesheet" href="/../assets/style/checkout.css">
 </head>
 <body>
 <?php include __DIR__ . "/../layout/navbar.php"; ?>
 
-    <div class="checkout-success">
-        <h1>✅ Pesanan Berhasil!</h1>
-        <p>Pesanan kamu telah diterima. ID Pesanan: <strong>#<?= $orderId ?></strong></p>
-        <p>Total: <strong>Rp<?= number_format($total) ?></strong></p>
-        <a href="menu.php" class="back-btn">← Kembali ke Menu</a>
+    <div class="checkout-notice">
+        <h1>Nota Pembelian</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Menu</th>
+                    <th>Harga</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($menuData as $item): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($item['nama_menu']) ?></td>
+                        <td>Rp<?= number_format($item['harga']) ?></td>
+                        <td><?= $item['qty'] ?></td>
+                        <td>Rp<?= number_format($item['subtotal']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <div class="total">
+            <strong>Total: Rp<?= number_format($total) ?></strong>
+        </div>
+
+        <form method="POST">
+            <a href="keranjang.php" class="back-btn">← Kembali ke Keranjang</a>
+            <button type="submit" name="checkout" class="checkout-btn">Konfirmasi Pesanan</button>
+        </form>
     </div>
 
 <?php include __DIR__ . "/../layout/footer.html"; ?>

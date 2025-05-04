@@ -1,0 +1,100 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Checkout Success Container */
+.checkout-success {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.checkout-success h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+/* Order Details */
+.checkout-success p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.checkout-success strong {
+    color: #d48700;
+}
+
+/* Table Styles */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #f1f1f1;
+    color: #555;
+    font-weight: bold;
+}
+
+.cart-table td {
+    color: #444;
+}
+
+/* Button Kembali */
+.back-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .checkout-success {
+        padding: 15px;
+    }
+
+    .cart-table th, .cart-table td {
+        padding: 10px;
+    }
+
+    .back-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}

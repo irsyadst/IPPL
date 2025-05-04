@@ -1,0 +1,145 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Tabel keranjang */
+.cart-container {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin: auto;
+    max-width: 800px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.cart-table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  color: #555;
+}
+
+.cart-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.cart-table td {
+  color: #444;
+}
+
+/* Tombol aksi (➕ ➖) */
+.action-btn {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 0 2px;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #bee5eb;
+}
+
+/* Total */
+.total {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #d48700;
+  margin: 20px;
+}
+
+/* Tombol checkout dan kembali */
+.checkout-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back-btn, .checkout-btn {
+  display: inline-block;
+  width: 48%;
+  padding: 12px 0;
+  margin: auto;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.back-btn:hover {
+  background-color: #5a6268;
+}
+
+.checkout-btn {
+  background-color: #d48700;
+  color: #fff;
+}
+
+.checkout-btn:hover {
+  background-color: #b76f00;
+}
+
+/* Teks kosong */
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .checkout-actions {
+    flex-direction: column;
+  }
+
+  .back-btn, .checkout-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

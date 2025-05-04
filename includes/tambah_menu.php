@@ -55,109 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Tambah Menu</title>
     <link rel="stylesheet" href="/../assets/style/admin.css">
-    <style>
-        body {
-            display: flex; /* Menjadikan body sebagai flex container */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .sidebar {
-            width: 220px; 
-            background-color: #2c3e50; 
-            color: white;
-            height: 100vh; /* Memastikan sidebar memiliki tinggi penuh */
-            padding: 20px; 
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column; /* Menata item di dalam sidebar secara vertikal */
-        }
-
-        .sidebar h2 {
-            font-size: 24px;
-        }
-
-        .sidebar a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            margin: 15px 0;
-            font-size: 16px;
-        }
-
-        .sidebar a:hover {
-            background-color: #34495e;
-            padding-left: 10px;
-        }
-
-        .content {
-            flex-grow: 1; /* Membuat konten mengisi ruang yang tersedia */
-            margin-left: 240px; /* Memberikan jarak antara sidebar dan konten */
-            padding: 30px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        form {
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-radius: 8px;
-            width: 400px;
-        }
-
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-            width: 100%;
-        }
-
-        input[type="text"], input[type="number"], input[type="file"] {
-            padding: 8px;
-        }
-
-        button {
-            background-color: #2ecc71;
-            border: none;
-            padding: 10px 20px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .success {
-            color: green;
-            margin-top: 10px;
-        }
-
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-
-        .back-btn {
-            background-color: #3498db; /* Biru */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
-            margin-left: 20px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .back-btn:hover {
-            background-color: #2980b9;
-        }
-    </style>
 </head>
 <body>
     <div class="sidebar">
         <h2>Admin Panel</h2>
         <a href="admin_dashboard.php">📋 Pesanan</a>
         <a href="tambah_admin.php">➕ Tambah Admin</a>
-        <a href="tambah_menu.php">🍜 Tambah Menu</a>
+        <a href="kelola_menu.php">🛠️ Kelola Menu</a>
         <a href="laporan_keuangan.php">📊 Laporan Keuangan</a>
         <a href="/server/logout.php">🚪 Logout</a>
     </div>

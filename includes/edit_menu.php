@@ -49,24 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Edit Menu</title>
     <link rel="stylesheet" href="/../assets/style/admin.css">
-    <style>
-        .btn-kembali {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 20px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .btn-kembali:hover {
-            background-color: #3498db;
-        }
-    </style>
 </head>
 
 <body>

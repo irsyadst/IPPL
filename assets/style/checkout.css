@@ -1,0 +1,121 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  
+  /* Container utama */
+  .checkout-notice {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin: auto;
+    max-width: 800px;
+  }
+  
+  .checkout-notice h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Tabel keranjang */
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .cart-table th, .cart-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .cart-table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .cart-table tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  .cart-table td {
+    color: #444;
+  }
+  
+  /* Total */
+  .total {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #d48700;
+  }
+  
+  /* Tombol checkout dan kembali */
+  form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .back-btn, .checkout-btn {
+    display: inline-block;
+    width: 48%;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .back-btn {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+  }
+  
+  .back-btn:hover {
+    background-color: #5a6268;
+  }
+  
+  .checkout-btn {
+    background-color: #d48700;
+    color: #fff;
+    border: none;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #b76f00;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    form {
+      flex-direction: column;
+    }
+  
+    .back-btn, .checkout-btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

@@ -8,6 +8,22 @@
 /* Body */
 body {
   font-family: 'Arial', sans-serif;
+  height: 100%; /* Pastikan body mengisi seluruh layar */
+  display: flex;
+  flex-direction: column; /* Layout kolom */
+}
+
+/* Wrapper utama halaman */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Memastikan konten utama mengisi ruang yang tersisa */
+}
+
+/* Konten utama */
+.content-wrap {
+  flex-grow: 1; /* Konten akan mengisi ruang yang tersedia */
+  padding-bottom: 100px; /* Memberikan ruang ekstra untuk footer */
 }
 
 /* Footer */
@@ -15,7 +31,8 @@ body {
   background-color: #181924;
   padding: 40px 20px;
   color: white;
-  box-sizing: border-box;
+  width: 100%;
+  margin-top: auto; /* Memastikan footer berada di bawah */
 }
 
 .footer-content {
@@ -23,7 +40,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 20px;
-  flex-wrap: wrap; /* Responsif untuk ukuran layar kecil */
+  flex-wrap: wrap;
 }
 
 .footer-logo {
@@ -93,4 +110,17 @@ body {
 .media-sosial img {
   width: 24px;
   height: 24px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-logo,
+  .footer-links {
+    flex: 1;
+    min-width: 200px;
+  }
 }
