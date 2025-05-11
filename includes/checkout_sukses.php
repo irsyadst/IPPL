@@ -44,7 +44,7 @@ while ($row = mysqli_fetch_assoc($result_items)) {
 <?php include __DIR__ . "/../layout/navbar.php"; ?>
 
     <div class="checkout-success">
-        <h1>✅ Pesanan Berhasil!</h1>
+        <h1>Pesanan Berhasil!</h1>
         <p>Pesanan kamu telah diterima. ID Pesanan: <strong>#<?= $order['id_order'] ?></strong></p>
         <p>Total: <strong>Rp<?= number_format($order['total']) ?></strong></p>
 

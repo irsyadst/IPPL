@@ -26,7 +26,7 @@ body {
 .checkout-success h1 {
     text-align: center;
     font-size: 32px;
-    color: #28a745;
+    color: #d48700;
     margin-bottom: 20px;
 }
 
@@ -68,7 +68,7 @@ body {
 /* Button Kembali */
 .back-btn {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #6c757d;
     color: white;
     padding: 10px 20px;
     text-align: center;
