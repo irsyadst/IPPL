@@ -124,3 +124,10 @@ body {
     min-width: 200px;
   }
 }
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+}
